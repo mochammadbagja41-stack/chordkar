@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chord Lagu 🎶</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&family=Poppins:wght@400;600&display=swap');
+
+  :root {
+    --bg: #0b0b0d;
+    --accent: #d61a3c;
+    --text: #f5f5f5;
+    --muted: #aaa;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  header {
+    background: linear-gradient(90deg, #1a1a1d, #220011);
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .logo {
+    font-family: 'Rock Salt', cursive;
+    font-size: 26px;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(214,26,60,0.6);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(214,26,60,0.15);
+  }
+
+  .song-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .artist {
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  pre {
+    background: transparent;
+    color: var(--text);
+    white-space: pre-wrap;
+    font-family: monospace;
+    line-height: 1.6;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ChordKar 🎸</div>
+  <a href="beranda.html">← Kembali</a>
+</header>
+
+<main id="song-container">
+  <p>Memuat lagu...</p>
+</main>
+
+<footer>
+  © 2025 ChordKar. Untuk latihan & referensi musik.
+</footer>
+
+<script>
+const songs = [
+  {
+    id: 1,
+    title: "Langit Senja",
+    artist: "Ardian F.",
+    chord: `
+[C] Langit mulai [G] merona
+[F] Saat kau datang [C] membawa senja
+[Am] Indahnya [F] takkan sirna
+[G] Walau malam [C] tiba
+`
+  },
+  {
+    id: 2,
+    title: "Hujan di Bulan Juni",
+    artist: "Sastra Project",
+    chord: `
+[Am] Tak ada yang [G] lebih tabah
+[F] Dari hujan di [C] bulan juni
+[Dm] Dirahasiakan [G] rintiknya
+[C] Demi cinta yang [Am] sunyi
+`
+  },
+  {
+    id: 3,
+    title: "Pelangi Malam",
+    artist: "R. Nanda",
+    chord: `
+[G] Di malam yang [D] sunyi
+[Em] Kulihat cahaya [C] berseri
+[Am] Seindah pelangi [D]
+[G] Menemani mimpi [C] ini
+`
+  }
+];
+
+// Ambil ID dari URL (contoh: lagu.html?id=2)
+const params = new URLSearchParams(window.location.search);
+const id = parseInt(params.get("id"));
+
+// Cari lagu berdasarkan ID
+const song = songs.find(s => s.id === id);
+
+const container = document.getElementById("song-container");
+
+if(song){
+  container.innerHTML = `
+    <div class="song-title">${song.title}</div>
+    <div class="artist">oleh ${song.artist}</div>
+    <pre>${song.chord}</pre>
+  `;
+} else {
+  container.innerHTML = `<p style="color:var(--muted)">Lagu tidak ditemukan 😢</p>`;
+}
+</script>
+
+</body>
+</html>

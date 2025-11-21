@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChordKar 🎸</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+  :root {
+    --bg: #0b0b0d;
+    --accent: #d61a3c;
+    --text: #f5f5f5;
+    --muted: #aaa;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  header {
+    background: linear-gradient(90deg, #1a1a1d, #220011);
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent);
+    text-shadow: 0 0 6px rgba(214,26,60,0.4);
+  }
+
+  nav {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex: 1;
+  }
+
+  nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+
+  nav a:hover {
+    color: var(--accent);
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 8px 12px;
+  }
+
+  .search-box input {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    outline: none;
+    width: 180px;
+    font-size: 14px;
+  }
+
+  .search-box svg {
+    color: var(--muted);
+    margin-right: 6px;
+  }
+
+  main {
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .song {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    padding: 20px 24px;
+    box-shadow: 0 4px 14px rgba(214,26,60,0.15);
+    transition: transform 0.3s ease;
+  }
+
+  .song:hover {
+    transform: scale(1.01);
+  }
+
+  .title a {
+    font-size: 22px;
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .title a:hover {
+    text-decoration: underline;
+  }
+
+  .artist {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid #222;
+  }
+
+  @media (max-width: 700px) {
+    header {flex-direction: column;gap:10px;}
+    nav {order: 3;}
+    .search-box input {width: 120px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo" id="logo">ChordKar 🎸</div>
+  
+  <nav>
+    <a href="beranda.html">Beranda</a>
+    <a href="kritik.html">Kritik & Saran</a>
+    <a href="tentang.html">Tentang</a>
+  </nav>
+
+  <div class="search-box">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <input type="text" id="search" placeholder="Cari lagu...">
+  </div>
+</header>
+
+<main id="song-list"></main>
+
+<footer>
+  © 2025 ChordKar. Untuk latihan & referensi musik.
+</footer>
+
+<script>
+const songs = [
+  { id: 1, title: "Langit Senja", artist: "Ardian F." },
+  { id: 2, title: "Hujan di Bulan Juni", artist: "Sastra Project" },
+  { id: 3, title: "Pelangi Malam", artist: "R. Nanda" }
+];
+
+function renderSongs(list){
+  const container = document.getElementById("song-list");
+  container.innerHTML = "";
+  list.forEach(s=>{
+    const fileName = "penyanyi/" + s.artist
+      .toLowerCase()
+      .replace(/\s+/g, '_')
+      .replace(/\./g, '') + ".html";
+
+    const div = document.createElement("div");
+    div.className = "song";
+    div.innerHTML = `
+      <div class="title">
+        <a href="lagu.html?id=${s.id}">${s.title}</a>
+      </div>
+      <div class="artist">
+        oleh <a href="${fileName}" style="color:var(--muted); text-decoration:none;">
+          ${s.artist}
+        </a>
+      </div>
+      <p style="color:var(--muted)">Klik judul untuk melihat chord & lirik lengkap.</p>
+    `;
+    container.appendChild(div);
+  });
+}
+
+document.getElementById("search").addEventListener("input", e=>{
+  const q = e.target.value.toLowerCase();
+  const filtered = songs.filter(s=>s.title.toLowerCase().includes(q) || s.artist.toLowerCase().includes(q));
+  renderSongs(filtered);
+});
+
+renderSongs(songs);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChordKar 🎸</title>
+<style>
+  
+
+  :root {
+    --bg: #0b0b0d;
+    --accent: #d61a3c;
+    --text: #f5f5f5;
+    --muted: #aaa;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  header {
+    background: linear-gradient(90deg, #1a1a1d, #220011);
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* logo kiri, nav di kanan tengah */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    flex-wrap: wrap;
+  }
+
+ .logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent);
+    text-shadow: 0 0 6px rgba(214,26,60,0.4);
+  }
+
+  nav {
+    display: flex;
+    justify-content: center; /* tengahin menu */
+    flex: 1;
+    gap: 40px;
+  }
+
+  nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+
+  nav a:hover {
+    color: var(--accent);
+  }
+
+  main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  /* Bagian Kritik & Saran */
+  .feedback {
+    text-align: center;
+    background: #111;
+    padding: 50px 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(214,26,60,0.2);
+    margin-bottom: 40px;
+  }
+
+  .feedback h2 {
+    color: var(--accent);
+    font-family: 'Rock Salt', cursive;
+    margin-bottom: 15px;
+    font-size: 28px;
+  }
+
+  .feedback p {
+    color: var(--text);
+    max-width: 600px;
+    margin: 0 auto 25px;
+    line-height: 1.6;
+  }
+
+  .contact-box {
+    margin-top: 20px;
+  }
+
+  .whatsapp-link {
+    display: inline-block;
+    background: #25D366;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .whatsapp-link:hover {
+    background: #20b857;
+    transform: scale(1.05);
+  }
+
+  .whatsapp-link span {
+    font-weight: 400;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid #222;
+  }
+
+  @media (max-width: 700px) {
+    header {
+      flex-direction: column;
+      gap: 10px;
+    }
+    nav {
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ChordKar 🎸</div>
+  
+  <nav>
+    <a href="beranda.html">Beranda</a>
+    <a href="kritik.html">Kritik & Saran</a>
+    <a href="tentang.html">Tentang</a>
+  </nav>
+</header>
+
+<main>
+  <section class="feedback">
+    <h2>Kritik & Saran</h2>
+    <p>
+      Jika kamu memiliki kritik tentang website kami, atau ingin memberikan saran tambahan chord lagu,  
+      silakan hubungi kami melalui kontak di bawah ini.
+    </p>
+
+    <div class="contact-box">
+      <a href="https://wa.me/6285781149775" target="_blank" class="whatsapp-link">
+        💬 Chat via WhatsApp: <span>+62 85781149775</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 ChordKar 🎸 | Semua hak cipta dilindungi
+</footer>
+
+</body>
+</html>

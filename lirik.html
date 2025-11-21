@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lagu | ChordKar 🎸</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&family=Poppins:wght@400;600&display=swap');
+
+  body {
+    background: #0b0b0d;
+    color: #f5f5f5;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  .container {
+    max-width: 800px;
+    margin: auto;
+    background: #111;
+    border: 1px solid #222;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(214,26,60,0.3);
+  }
+  h1 {
+    color: #d61a3c;
+    margin-bottom: 10px;
+  }
+  .artist {
+    color: #aaa;
+    margin-bottom: 20px;
+  }
+  pre {
+    white-space: pre-wrap;
+    font-family: monospace;
+    line-height: 1.6;
+  }
+  .chord { color: #d61a3c; font-weight: 600; }
+  a.back {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #d61a3c;
+    text-decoration: none;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <a href="index.html" class="back">← Kembali ke Beranda</a>
+  <h1 id="title"></h1>
+  <div class="artist" id="artist"></div>
+  <pre id="lyrics"></pre>
+</div>
+
+<script>
+const songs = {
+  1: {
+    title: "Langit Senja",
+    artist: "Ardian F.",
+    lyrics: `
+<span class="chord">C</span>           <span class="chord">G</span>
+Langit mulai berwarna jingga
+<span class="chord">Am</span>                <span class="chord">F</span>
+Kau tersenyum di ujung jalan sana
+<span class="chord">C</span>            <span class="chord">G</span>
+Kuingin waktu berhenti saja
+<span class="chord">F</span>              <span class="chord">G</span>     <span class="chord">C</span>
+Menjaga rasa yang belum sempat ku kata
+    `
+  },
+  2: {
+    title: "Hujan di Bulan Juni",
+    artist: "Sastra Project",
+    lyrics: `
+<span class="chord">Am</span>              <span class="chord">G</span>
+Tak ada yang lebih tabah
+<span class="chord">F</span>           <span class="chord">C</span>
+Dari hujan di bulan Juni
+<span class="chord">Am</span>           <span class="chord">G</span>
+Dirahasiakannya rindu
+<span class="chord">F</span>           <span class="chord">C</span>
+Kepada pohon berbunga itu
+    `
+  },
+  3: {
+    title: "Pelangi Malam",
+    artist: "R. Nanda",
+    lyrics: `
+<span class="chord">D</span>           <span class="chord">A</span>
+Di bawah sinar rembulan
+<span class="chord">Bm</span>             <span class="chord">G</span>
+Ku nyanyikan lagu harapan
+<span class="chord">D</span>         <span class="chord">A</span>
+Kau pelangi di malam kelam
+<span class="chord">G</span>             <span class="chord">A</span>     <span class="chord">D</span>
+Menjadi cahaya di hatiku yang dalam
+    `
+  }
+};
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+const song = songs[id];
+
+if (song) {
+  document.getElementById("title").textContent = song.title;
+  document.getElementById("artist").textContent = "oleh " + song.artist;
+  document.getElementById("lyrics").innerHTML = song.lyrics;
+} else {
+  document.querySelector(".container").innerHTML = "<h1>Lagu tidak ditemukan.</h1>";
+}
+</script>
+
+</body>
+</html>
