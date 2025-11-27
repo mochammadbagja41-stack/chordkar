@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tentang | ChordKar 🎸</title>
 <style>
-  
 
   :root {
     --bg: #0b0b0d;
@@ -19,6 +18,11 @@
     background: var(--bg);
     color: var(--text);
     font-family: 'Poppins', sans-serif;
+
+    /* Tambahan agar footer selalu di bawah */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 
   header {
@@ -35,12 +39,12 @@
   }
 
   .logo {
-    font-family: 'Poppins', sans-serif;
     font-size: 26px;
     font-weight: 700;
     color: var(--accent);
     text-shadow: 0 0 6px rgba(214,26,60,0.4);
   }
+
   nav {
     display: flex;
     justify-content: center;
@@ -68,9 +72,11 @@
     justify-content: space-between;
     gap: 30px;
     flex-wrap: wrap;
+
+    /* Tambahan biar ngedorong footer ke bawah */
+    flex: 1;
   }
 
-  /* Bagian kiri teks */
   .about-text {
     flex: 1;
     min-width: 280px;
@@ -90,7 +96,6 @@
     text-align: justify;
   }
 
-  /* Slideshow di kanan */
   .slideshow {
     flex: 1;
     min-width: 300px;
@@ -145,7 +150,7 @@
 
 <header>
   <div class="logo">ChordKar 🎸</div>
-  
+
   <nav>
     <a href="index.html">Beranda</a>
     <a href="kritik.html">Kritik & Saran</a>
@@ -171,19 +176,19 @@
   </div>
 </main>
 
-
 <footer>
   <div style="text-align:center; margin-bottom:10px;">
     <a href="https://instagram.com/Keyalif_28" target="_blank" style="text-decoration:none;">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" 
-           alt="Instagram" 
-           style="width:40px; filter: invert(1);"></a>
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
+           alt="Instagram"
+           style="width:40px; filter: invert(1);">
+    </a>
+  </div>
 
- <p> &copy; 2025 ChordKar 🎸 | Semua hak cipta dilindungi </p>
+  <p>&copy; 2025 ChordKar 🎸 | Semua hak cipta dilindungi</p>
 </footer>
 
 <script>
-  // Script slideshow otomatis
   let slides = document.querySelectorAll('.slide');
   let index = 0;
 
@@ -191,9 +196,8 @@
     slides[index].classList.remove('active');
     index = (index + 1) % slides.length;
     slides[index].classList.add('active');
-  }, 3000); // ganti foto setiap 3 detik
+  }, 3000);
 </script>
 
 </body>
 </html>
-
