@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ChordKar 🎸</title>
 <style>
-  
 
   :root {
     --bg: #0b0b0d;
@@ -19,6 +18,11 @@
     background: var(--bg);
     color: var(--text);
     font-family: 'Poppins', sans-serif;
+
+    /* Tambahan supaya footer selalu di bawah */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 
   header {
@@ -26,7 +30,7 @@
     padding: 15px 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* logo kiri, nav di kanan tengah */
+    justify-content: space-between;
     box-shadow: 0 4px 12px rgba(0,0,0,0.6);
     position: sticky;
     top: 0;
@@ -44,7 +48,7 @@
 
   nav {
     display: flex;
-    justify-content: center; /* tengahin menu */
+    justify-content: center;
     flex: 1;
     gap: 40px;
   }
@@ -64,9 +68,11 @@
     max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
+
+    /* tambahan flex supaya isi mendorong footer */
+    flex: 1;
   }
 
-  /* Bagian Kritik & Saran */
   .feedback {
     text-align: center;
     background: #111;
@@ -167,4 +173,3 @@
 
 </body>
 </html>
-
