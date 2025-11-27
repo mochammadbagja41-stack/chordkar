@@ -19,7 +19,6 @@
     color: var(--text);
     font-family: 'Poppins', sans-serif;
 
-    /* Tambahan agar footer selalu di bawah */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -73,7 +72,6 @@
     gap: 30px;
     flex-wrap: wrap;
 
-    /* Tambahan biar ngedorong footer ke bawah */
     flex: 1;
   }
 
@@ -123,6 +121,23 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  /* Sosial Media di luar footer */
+  .social-bar {
+    text-align: center;
+    margin: 20px 0 10px;
+  }
+
+  .social-bar img {
+    width: 40px;
+    margin: 0 10px;
+    filter: invert(1);
+    transition: 0.3s;
+  }
+
+  .social-bar img:hover {
+    transform: scale(1.15);
   }
 
   footer {
@@ -176,15 +191,20 @@
   </div>
 </main>
 
-<footer>
-  <div style="text-align:center; margin-bottom:10px;">
-    <a href="https://instagram.com/Keyalif_28" target="_blank" style="text-decoration:none;">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
-           alt="Instagram"
-           style="width:40px; filter: invert(1);">
-    </a>
-  </div>
+<!-- Sosmed di luar footer -->
+<div class="social-bar">
+  <!-- Instagram -->
+  <a href="https://instagram.com/Keyalif_28" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+  </a>
 
+  <!-- TikTok -->
+  <a href="https://www.tiktok.com/@pakbozz007" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok">
+  </a>
+</div>
+
+<footer>
   <p>&copy; 2025 ChordKar 🎸 | Semua hak cipta dilindungi</p>
 </footer>
 
